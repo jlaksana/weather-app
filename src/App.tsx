@@ -1,4 +1,5 @@
 import "./App.css";
+import Current from "./components/Current";
 
 function App() {
   // const [location, setLocation] = useState("San Luis Obispo");
@@ -10,10 +11,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Sacramento</h1>
-        <h3>89 F</h3>
-      </header>
+      <Current
+        temperature={80}
+        location={"Sacramento"}
+        description={"Sunny"}
+        high={86}
+        low={78}
+        feels={75}
+      />
     </div>
   );
 }
