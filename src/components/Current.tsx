@@ -1,17 +1,11 @@
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { FC } from "react";
+import { CurrentProps } from "../interfaces.js";
 import "../styles/Current.css";
 
-interface CurrentProps {
-  temperature: number;
-  location: string;
-  description: string;
-  high: number;
-  low: number;
-  feels: number;
-}
-
 const Current: FC<CurrentProps> = (props) => {
+  const date: Date = new Date();
+
   return (
     <div className="currentWeather">
       <p className="location">
@@ -26,7 +20,7 @@ const Current: FC<CurrentProps> = (props) => {
       <p className="hilo">
         {props.low}° / {props.high}° Feels like {props.feels}°
       </p>
-      <p className="date">Wed, August 10, 2022</p>
+      <p className="date">{date.toDateString()}</p>
     </div>
   );
 };
