@@ -35,3 +35,8 @@ export interface CurrentProps {
   low: number;
   feels: number;
 }
+
+export interface SunProps {
+  sunrise: number;
+  sunset: number;
+}

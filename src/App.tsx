@@ -3,25 +3,21 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Current from "./components/Current";
+import Sun from "./components/Sun";
 import { ICurrentWeather } from "./interfaces.js";
 
 function App() {
   const [location, setLocation] = useState("Sacramento");
-  const [currentData, setCurrentData] = useState<ICurrentWeather | undefined>(
-    undefined
-  );
+  const [data, setData] = useState<ICurrentWeather | undefined>(undefined);
 
-  const urlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=01cef1176e62c3bf636fe8275cc2382d`;
-  // const urlHourly = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${location}&units=imperial&appid=01cef1176e62c3bf636fe8275cc2382d`;
-  // const urlDaily = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&cnt=5&units=imperial&appid=01cef1176e62c3bf636fe8275cc2382d`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=01cef1176e62c3bf636fe8275cc2382d`;
 
   useEffect(() => {
     const getCurrentWeather: Function = () => {
       axios
-        .get(urlCurrent)
+        .get(url)
         .then((res) => {
-          setCurrentData(res.data);
-          console.log(res.data);
+          setData(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -32,15 +28,18 @@ function App() {
 
   return (
     <div className="App">
-      {currentData ? (
-        <Current
-          temperature={currentData.main.temp}
-          location={location}
-          description={currentData.weather[0].description}
-          high={currentData.main.temp_max}
-          low={currentData.main.temp_min}
-          feels={currentData.main.feels_like}
-        />
+      {data ? (
+        <div>
+          <Current
+            temperature={data.main.temp}
+            location={location}
+            description={data.weather[0].main}
+            high={data.main.temp_max}
+            low={data.main.temp_min}
+            feels={data.main.feels_like}
+          />
+          <Sun sunrise={data.sys.sunrise} sunset={data.sys.sunset} />
+        </div>
       ) : (
         <Current
           temperature={76}

@@ -1,0 +1,27 @@
+.sun {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-between;
+  gap: 1.5rem;
+}
+
+.rise,
+.set {
+  width: 160px;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-size: 0.8rem;
+}
+
+.rise {
+  background-color: rgba(254, 205, 31, 0.7);
+}
+
+.set {
+  background-color: rgba(238, 76, 41, 0.5);
+}
