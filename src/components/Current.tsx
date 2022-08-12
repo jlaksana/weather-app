@@ -13,12 +13,13 @@ const Current: FC<CurrentProps> = (props) => {
         {props.location}
       </p>
       <div className="temperature">
-        <strong>{props.temperature}</strong>
+        {props.temperature.toFixed()}
         <div className="f">°F</div>
       </div>
       <p className="description">{props.description}</p>
       <p className="hilo">
-        {props.low}° / {props.high}° Feels like {props.feels}°
+        {props.low.toFixed()}° / {props.high.toFixed()}° Feels like{" "}
+        {props.feels.toFixed()}°
       </p>
       <p className="date">{date.toDateString()}</p>
     </div>
