@@ -1,0 +1,24 @@
+.extra {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+}
+
+.humidity,
+.wind,
+.precipitation {
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  background-color: rgba(119, 222, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.extra p {
+  margin: 0;
+  padding: 0;
+}

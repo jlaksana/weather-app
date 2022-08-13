@@ -14,6 +14,14 @@ export interface ICurrentWeather {
   wind: { speed: number; deg: number };
   clouds: { all: number };
   dt: number;
+  rain?: {
+    "1h": number;
+    "3h": number;
+  };
+  snow?: {
+    "1h": number;
+    "3h": number;
+  };
   sys: {
     type: number;
     id: number;
@@ -39,4 +47,12 @@ export interface CurrentProps {
 export interface SunProps {
   sunrise: number;
   sunset: number;
+}
+
+export interface ExtraProps {
+  humidity: number;
+  wind: number;
+  visibility: number;
+  rain?: number;
+  snow?: number;
 }

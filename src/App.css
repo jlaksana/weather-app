@@ -2,9 +2,15 @@
   margin: auto;
   border: solid black 1px;
   max-width: 500px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.content {
+  width: inherit;
+  height: inherit;
 }
