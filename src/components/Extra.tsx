@@ -2,7 +2,6 @@ import AcUnitIcon from "@mui/icons-material/AcUnit";
 import AirIcon from "@mui/icons-material/Air";
 import GrainIcon from "@mui/icons-material/Grain";
 import OpacityIcon from "@mui/icons-material/Opacity";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { FC } from "react";
 import { ExtraProps } from "../interfaces.js";
 import "../styles/Extra.css";
@@ -26,12 +25,7 @@ const Extra: FC<ExtraProps> = (props) => {
       </div>
     );
   } else {
-    precipitation = (
-      <div className="precipitation">
-        <WbSunnyIcon fontSize="large" />
-        Clear
-      </div>
-    );
+    precipitation = <div className="precipitation">NO PRECIPITATION</div>;
   }
 
   return (

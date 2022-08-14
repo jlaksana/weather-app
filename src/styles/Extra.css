@@ -18,6 +18,10 @@
   gap: 3px;
 }
 
+.precipitation {
+  font-size: 0.7rem;
+}
+
 .extra p {
   margin: 0;
   padding: 0;
