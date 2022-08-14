@@ -1,35 +1,36 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Current from "./components/Current";
 import Extra from "./components/Extra";
+import Search from "./components/Search";
 import Sun from "./components/Sun";
-import { ICurrentWeather } from "./interfaces.js";
+import { ICurrentWeather, ISearchData } from "./interfaces.js";
 
 function App() {
-  const [location, setLocation] = useState("Phoenix");
+  const [location, setLocation] = useState("");
   const [data, setData] = useState<ICurrentWeather | undefined>(undefined);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=01cef1176e62c3bf636fe8275cc2382d`;
+  const handleOnSearchChange = (searchData: ISearchData) => {
+    const [lat, lon] = searchData.value.split(" ");
 
-  useEffect(() => {
-    const getCurrentWeather: Function = () => {
-      axios
-        .get(url)
-        .then((res) => {
-          setData(res.data);
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    if (location !== "") getCurrentWeather();
-  }, [location]);
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=01cef1176e62c3bf636fe8275cc2382d`;
+
+    axios
+      .get(url)
+      .then((res) => {
+        setData(res.data);
+        setLocation(searchData.label);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="App">
+      <Search onSearchChange={handleOnSearchChange} />
       {data ? (
         <div className="content">
           <Current
@@ -49,16 +50,7 @@ function App() {
             snow={data.snow ? data.snow["1h"] : undefined}
           />
         </div>
-      ) : (
-        <Current
-          temperature={76}
-          location={location}
-          description={"~Sunny~"}
-          high={80}
-          low={74}
-          feels={76}
-        />
-      )}
+      ) : null}
     </div>
   );
 }
