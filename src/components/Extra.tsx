@@ -25,7 +25,11 @@ const Extra: FC<ExtraProps> = (props) => {
       </div>
     );
   } else {
-    precipitation = <div className="precipitation">NO PRECIPITATION</div>;
+    precipitation = (
+      <div className="precipitation">
+        NO <br /> PRECIPITATION
+      </div>
+    );
   }
 
   return (

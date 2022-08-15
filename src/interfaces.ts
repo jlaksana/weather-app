@@ -35,6 +35,49 @@ export interface ICurrentWeather {
   cod: number;
 }
 
+export interface IDailyWeather {
+  dt: number;
+  main: {
+    temp: number;
+    feels_like: number;
+    temp_min: number;
+    temp_max: number;
+    pressure: number;
+    sea_level: number;
+    grnd_level: number;
+    humidity: number;
+    temp_kf: number;
+  };
+  weather: [
+    {
+      id: number;
+      main: String;
+      description: String;
+      icon: String;
+    }
+  ];
+  clouds: {
+    all: number;
+  };
+  wind: {
+    speed: number;
+    deg: number;
+    gust: number;
+  };
+  visibility: number;
+  pop: number;
+  rain?: {
+    "3h": number;
+  };
+  snow?: {
+    "3h": number;
+  };
+  sys: {
+    pod: string;
+  };
+  dt_txt: string;
+}
+
 export interface CurrentProps {
   temperature: number;
   location: string;
@@ -79,4 +122,16 @@ export interface ICity {
 export interface ISearchData {
   value: string;
   label: string;
+}
+
+export interface IDailyWeather {
+  cod: string;
+  message: number;
+  cnt: number;
+  list: Array<IDailyWeather>;
+  city: Object;
+}
+
+export interface DailyProps {
+  list: Array<IDailyWeather>;
 }
