@@ -10,7 +10,6 @@ const Daily: FC<DailyProps> = (props) => {
     return data;
   };
   const data = filterProps(props.list);
-  // const [data, setData] = useState<Array<IDailyWeather> | undefined>(undefined);
 
   const getDayFromUTC: Function = (utc: number) => {
     const days = [

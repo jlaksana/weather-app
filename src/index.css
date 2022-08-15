@@ -1,11 +1,7 @@
 body {
   margin: 0;
   font-family: "Aldrich", sans-serif;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(128, 197, 246, 1),
-    rgba(0, 0, 0, 1)
-  );
+  background-color: azure;
   background-repeat: no-repeat;
   min-height: 100vh;
   height: fit-content;

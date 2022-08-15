@@ -41,8 +41,18 @@ function App() {
       });
   };
 
+  const isDay: Function = (): Boolean => {
+    if (!data) return true;
+
+    const currentMoment = new Date();
+    const sunrise = new Date(data.sys.sunrise * 1000);
+    const sunset = new Date(data.sys.sunset * 1000);
+
+    return sunrise <= currentMoment && currentMoment < sunset;
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${isDay() ? "day" : "night"}`}>
       <Search onSearchChange={handleOnSearchChange} />
       {data ? (
         <div className="content">
