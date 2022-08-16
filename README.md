@@ -1,3 +1,9 @@
+# About
+
+This project is a weather app created with React along with the OpenWeatherMap API and the GeoDB Cities API. It was specifically designed for mobile screens. The OpenWeatherMap API was used to receive weather data for a given location while the GeoDB Cities API was used to implement the search bar for US Cities.
+
+View the live app [here](https://jlaksana.github.io/weather-app/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
