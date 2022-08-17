@@ -41,6 +41,13 @@ function App() {
       });
   };
 
+  if (!data) {
+    handleOnSearchChange({
+      value: "35.38 -120.45",
+      label: "San Luis Obispo County, CA",
+    });
+  }
+
   const isDay: Function = (): Boolean => {
     if (!data) return true;
 
@@ -75,9 +82,7 @@ function App() {
           />
           <p className="caption">Developed by Jonathan Laksana Aug 2022</p>
         </div>
-      ) : (
-        <h1>Search for city</h1>
-      )}
+      ) : null}
     </div>
   );
 }
